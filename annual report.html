@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {packages: ['corechart', 'bar']});
+google.charts.setOnLoadCallback(drawStacked);
+
+function drawStacked() {
+      var data = google.visualization.arrayToDataTable([
+        ['year', 'Product 1', 'product 2','product 3'],
+        ['2023, Quarter 1', 81, 80,40],
+        ['2023, Quarter 2', 37, 36,22],
+        ['2023, Quarter 3', 26, 28,22],
+        ['2023, Quarter 4', 20, 190,22]
+        ]);
+
+      var options = {
+        title: 'quarterly sales report',
+        chartArea: {width: '50%'},
+        isStacked: true,
+        hAxis: {
+          title: 'Total Orders',
+          minValue: 0,
+        },
+        vAxis: {
+          title: 'Year'
+        }
+      };
+      var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+    }
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annual report</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['table']});
+      google.charts.setOnLoadCallback(drawTable);
+
+      function drawTable() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'most order items');
+        data.addColumn('number', 'orders');
+        data.addRows([
+          ['Mike',  10],
+          ['Jim',   10],
+          ['Alice', 10],
+          ['Bob',   10]
+        ]);
+          
+        var table = new google.visualization.Table(document.getElementById('table_div'));
+
+        table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+      }
+    </script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['route', 'Speakers (in millions)'],
+          ['Route 1', 13], ['Route 2', 83], ['Route 3', 1.4],
+          ['Route 4', 2.3], ['Route 5', 46], ['Route 6', 300],
+          ['Route 7', 38], ['Route 8', 5.5], ['Route 9', 5],
+          ['Route 10', 20]
+        ]);
+
+        var options = {
+          title: 'Routes and orders',
+          legend: 'none',
+          pieSliceText: 'label',
+          slices: {  4: {offset: 0.2},
+                    12: {offset: 0.3},
+                    14: {offset: 0.4},
+                    15: {offset: 0.5},
+          },
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        chart.draw(data, options);
+      }
+    </script>
+    <!-- map -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Colombo',     11],
+          ['Negombo',      2],
+          ['Galle',  2],
+          ['Matara', 2],
+          ['Jaffna',    7],
+          ['Trinco',    7]
+        ]);
+
+        var options = {
+          title: 'Cities and orders',
+          pieHole: 0.4,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+      }
+    </script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['table']});
+      google.charts.setOnLoadCallback(drawTable);
+
+      function drawTable() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Driver');
+        data.addColumn('string', 'Truck');
+        data.addColumn('number', 'worked Time');
+        data.addRows([
+          ['Mike',  'truck1', 24],
+          ['Jim',   'truck2',  24],
+          ['Alice', 'truck3', 24],
+          ['Bob',   'truck4',  24],
+          ['Alice', 'truck5', 24],
+          ['Alice', 'truck6', 24],
+          ['Alice', 'truck7', 24]
+        ]);
+
+        var table = new google.visualization.Table(document.getElementById('table_div2'));
+
+        table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+      }
+    </script>
+  <!-- end -->
+  <body>
+    <nav>
+        <div class="logo">
+            <p>A company</p>
+        </div>
+        <ul>
+            <li><a href="Home page.html">Home</a></li>
+            <li><a href="about.html">about</a></li>
+            <li><a href="contact.html">contact</a></li>
+        </ul>
+    </nav>
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+    <div id="table_div" style="position: absolute; top: 100px; left: 900px;
+    height: 350px; width: 400px;"></div>
+    <div id="piechart" style="width: 900px; height: 500px; position: absolute; top: 500px; left: 0px;"></div>
+    
+    <div id="donutchart" style="width: 900px; height: 500px;position: absolute; top: 500px; left: 650px;"></div>
+    <div id="table_div2" style="width: 600px; height: 500px;position: absolute; top: 1050px; left: 300px;"></div>
+  </body>
+</html>
